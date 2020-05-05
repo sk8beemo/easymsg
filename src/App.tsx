@@ -1,24 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+import useStyles from './style';
+
 
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={classes.root}>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
         >
-          Learn React
-        </a>
-      </header>
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="Список телефонов"
+              multiline
+              rows={10}
+              defaultValue="вставьте номера через любой разделитель"
+              variant="outlined"
+            />
+            <Button variant="contained" color="primary" disableElevation>
+              выбрать из файла
+            </Button>
+          </div>
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="Сообщение"
+              multiline
+              rows={10}
+              defaultValue="Вебинар начинаем через час. Доступ"
+              variant="outlined"
+            />
+            <Button variant="contained" color="primary" disableElevation>
+              прикрепить файл
+            </Button>
+          </div>
+        </Grid>
+      </Container>
     </div>
   );
 }
